@@ -37,7 +37,7 @@ flowchart TB
 
 | GitHub 仓库 | 启用时机 | 核心职责与包含模块 | 许可证与贡献协议 | 版本与真实交付物说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| **`.github`** | **Day 1** | • `profile/README.md`（组织首页总览）<br>• `SECURITY.md`（内核/虚拟化逃逸漏洞私密披露流程）<br>• Issue/PR 模板与组织级规范 | Apache-2.0 | 本地模板存放于 `repos/dot-github/`，推送远端时关联至 `aether-vm/.github`。 |
+| **`.github`** | **Day 1** | • `profile/README.md`（组织首页总览）<br>• `SECURITY.md`（内核/虚拟化逃逸漏洞私密披露流程）<br>• `brand/`（组织视觉识别系统与 Design Tokens 权威源：`svg/` 矢量 Logo、`png/` 图标与 favicon、`tokens/` CSS Variables + Tailwind Preset、商标使用说明）<br>• Issue/PR 模板与组织级规范 | Apache-2.0 | 本地模板存放于 `repos/dot-github/`，推送远端时关联至 `aether-vm/.github`。 |
 | **`aether`** | **Day 1** | • `crates/`：`agentd`、`aos-types`、`aos-store`、`aos-meta`、`aos-sandbox`、`aos-gw`、`aos-guest`、`aos-cli`<br>• `guest-image/`：Guest Linux 内核裁剪配置、Inspector `initramfs` 构建及 **GPLv2 内核源码合规脚本**<br>• `proto/`：gRPC 唯一事实源（含版本协商 RPC 与 `buf breaking` 检查）<br>• `sdk/python/` & `sdk/typescript/`：gRPC 瘦客户端<br>• `benchmarks/`：Phase 0 证伪与回归基准套件<br>• `docs/` & `AGENTS.md`：架构规范、定位白皮书、证伪手册与工程红线 | **Apache-2.0**<br>+ **DCO / CLA**（接收首个外部 PR 前强制启用，保障未来 Open-Core 演进权利） | `v1.0` 前全组件**锁步同版本号**。完整发行包（**Runtime Release Bundle**）除 `agentd`/`aos-gw`/`aos` 主程序外，明确包含静态 `aos-guest`、定制 `vmlinux` 与 `initramfs`，并注明宿主机外部依赖（`firecracker`/`jailer`、`btrfs-progs`、`e2fsprogs`）。 |
 | **`aether-mcp`** | **Phase 1 发布后** | • 轻量 MCP Server（暴露本地 tar 流导入、分叉、存档、回滚、补丁导出） | **MIT** | 仅消费公开发布的 SDK 与版本协商接口；当前最多在 GitHub 建私有空仓占名，不在本地维护空壳代码。 |
 | **`aether-recipes`** | **Phase 1 发布后** | • SWE-bench / RL 采样脚本、PostgreSQL 预热模板与对比基准复现配方 | **MIT** | 面向 Python AI 算法与测试团队零门槛引流。 |
@@ -67,6 +67,7 @@ flowchart TB
 | **工作区总导航与 AI 特战队宪章** | `./AGENTS.md`（并同步内置于 `./repos/aether/AGENTS.md`） | 已生效 |
 | **GitHub 组织拓扑与治理规划书** | `./ORGANIZATION_PLAN.md`（本文件） | 已生效（v2.1 终审版） |
 | **组织对外主页与安全披露规范模板** | `./repos/dot-github/profile/README.md` & `./repos/dot-github/SECURITY.md` | 已就绪（推送至 `aether-vm/.github`） |
+| **组织视觉识别系统（VI）与 Design Tokens 权威源** | `./repos/dot-github/brand/`（说明：`brand/README.md`；远端 `aether-vm/.github/brand`） | 已生效（Logo / Icon / CSS Variables / Tailwind Preset） |
 | **产品定位、核心能力与行业应用白皮书** | `./repos/aether/docs/PRODUCT_POSITIONING.md` | 已生效 |
 | **核心运行时架构规范（含提交状态机与威胁模型）** | `./repos/aether/docs/ARCHITECTURE_V2.md` | 已生效（合入 Gate 1 A1~A7 修订） |
 | **Phase 0 内核原语证伪实验手册（唯一指标源）** | `./repos/aether/docs/PHASE0_FALSIFICATION.md` | 已生效 |

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  <title>AETHER — The Runtime of Possibilities</title>
+  <desc>AETHER core geometric symbol combining letter A, virtual machine execution engine node, and state forking ribbon.</desc>
+  <defs>
+    <!-- 1. Left Ascending Leg Gradient (Vibrant Violet -> Electric Blue -> Fold Crease) -->
+    <linearGradient id="aether-left-leg" x1="100" y1="406" x2="198" y2="238" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8C00FF" />
+      <stop offset="30%" stop-color="#582CFF" />
+      <stop offset="68%" stop-color="#2D56FF" />
+      <stop offset="88%" stop-color="#253EC2" />
+      <stop offset="100%" stop-color="#1E2785" />
+    </linearGradient>
+
+    <!-- Left Fold Crease Ambient Occlusion Shadow -->
+    <linearGradient id="aether-left-ao" x1="192" y1="248" x2="165" y2="296" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0E1354" stop-opacity="0.92" />
+      <stop offset="40%" stop-color="#1D2A8A" stop-opacity="0.48" />
+      <stop offset="100%" stop-color="#2D56FF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- 2. Right Execution Path Gradient (Top Peak Cyan-Blue -> Royal Indigo -> Fold Crease) -->
+    <linearGradient id="aether-right-leg" x1="238" y1="114" x2="388" y2="352" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1B5CE6" />
+      <stop offset="32%" stop-color="#284EF0" />
+      <stop offset="68%" stop-color="#3342E8" />
+      <stop offset="88%" stop-color="#3032B0" />
+      <stop offset="100%" stop-color="#211F6E" />
+    </linearGradient>
+
+    <!-- Right Fold Crease Ambient Occlusion Shadow -->
+    <linearGradient id="aether-right-ao" x1="378" y1="348" x2="346" y2="294" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#13124F" stop-opacity="0.92" />
+      <stop offset="42%" stop-color="#242478" stop-opacity="0.48" />
+      <stop offset="100%" stop-color="#3342E8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- 3. Foreground State-Forking Ribbon Gradient (Cyan-Blue Peak -> Electric Blue -> Violet Base) -->
+    <linearGradient id="aether-center-ribbon" x1="190" y1="210" x2="422" y2="406" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0E67E6" />
+      <stop offset="28%" stop-color="#1857E3" />
+      <stop offset="56%" stop-color="#244CE3" />
+      <stop offset="78%" stop-color="#4B2EE8" />
+      <stop offset="100%" stop-color="#760CF0" />
+    </linearGradient>
+
+    <!-- Brand Spec Cyan-to-Violet Linear Gradient -->
+    <linearGradient id="aether-brand-gradient" x1="80" y1="106" x2="432" y2="406" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#48D8E8" />
+      <stop offset="50%" stop-color="#3B68FF" />
+      <stop offset="100%" stop-color="#8175FF" />
+    </linearGradient>
+  </defs>
+  <g id="aether-geometric-mark">
+    <!-- Layer 1: Left Ascending Leg (tucks beneath the upper-left fold) -->
+    <path d="M 80 406 L 171 252 C 179 239, 193 250, 205 280 L 132 406 Z" fill="url(#aether-left-leg)" />
+    <path d="M 142 389 L 171 252 C 179 239, 193 250, 205 280 Z" fill="url(#aether-left-ao)" />
+
+    <!-- Layer 2: Right Descending Execution Path (tucks beneath the bottom-right fold) -->
+    <path d="M 257 106 L 385 326 C 394 341, 384 361, 356 361 L 231 150 Z" fill="url(#aether-right-leg)" />
+    <path d="M 314 290 L 356 361 C 384 361, 394 341, 385 326 L 359 282 Z" fill="url(#aether-right-ao)" />
+
+    <!-- Layer 3: Foreground State-Forking Ribbon (overlaps left fold and wraps bottom-right fold) -->
+    <path d="M 205 194 L 303 361 L 356 361 C 384 361, 394 341, 385 326 L 432 406 L 279 406 L 205 280 C 193 250, 179 239, 171 252 Z" fill="url(#aether-center-ribbon)" />
+  </g>
+</svg>

@@ -1,0 +1,358 @@
+/**
+ * ============================================================================
+ * AETHER — The Runtime of Possibilities
+ * Official Brand Visual Specification & CSS Design Tokens
+ * ============================================================================
+ * Core Concept : Minimalist geometric 'A' fusing VM, State Forking, Execution
+ *                Path, and Spatial Structure.
+ * Brand Pillars: Abstract · Precision · Infrastructure · Intelligence · Trust
+ * Aesthetic    : Dark Tech Base · Cyan-to-Violet Gradient · Geometric Node
+ *                Structure · Restrained Glow · High-Contrast Engineered UI
+ * ============================================================================
+ */
+
+/* Recommended Font Imports (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root,
+[data-theme="dark"],
+.aether-theme-dark {
+  color-scheme: dark;
+
+  /* ==========================================================================
+   * 1. BRAND CORE PALETTE (品牌主色与扩展色阶)
+   * ========================================================================== */
+
+  /* Primary Brand Swatches (规范标准主色) */
+  --aether-color-midnight: #0B1020;       /* Midnight — 深色科技主背景底色 */
+  --aether-color-surface: #11182B;        /* Surface — 卡片、面板与次级容器底色 */
+  --aether-color-cyan: #48D8E8;           /* Aether Cyan — 执行引擎 (Execution) 核心高亮色 */
+  --aether-color-violet: #8175FF;         /* Aether Violet — 状态分叉 (State Forking) 核心主题色 */
+
+  /* RGB Channels (用于动态透明度拼接: rgba(var(--aether-rgb-*), <alpha>)) */
+  --aether-rgb-midnight: 11, 16, 32;
+  --aether-rgb-surface: 17, 24, 43;
+  --aether-rgb-cyan: 72, 216, 232;
+  --aether-rgb-violet: 129, 117, 255;
+
+  /* Extended Surface & Depth Scale (深色科技层级色阶) */
+  --aether-bg-abyss: #050714;             /* Deepest Runtime Canvas / Logo Emblem Backdrop */
+  --aether-bg-canvas: var(--aether-color-midnight); /* #0B1020 Primary App Background */
+  --aether-bg-surface: var(--aether-color-surface); /* #11182B Elevated Card / Panel Surface */
+  --aether-bg-surface-raised: #162038;    /* Hover / Active Panel / Modal Surface */
+  --aether-bg-surface-overlay: #1C2846;   /* Dropdown / Popover / Command Palette Surface */
+  --aether-bg-glass: rgba(17, 24, 43, 0.76); /* Engineered Frosted Glass Surface */
+  --aether-bg-glass-heavy: rgba(11, 16, 32, 0.88);
+
+  /* Aether Cyan Scale (Execution Engine Accent Scale) */
+  --aether-cyan-50: #ECFCFE;
+  --aether-cyan-100: #CFF7FC;
+  --aether-cyan-200: #9EEFF9;
+  --aether-cyan-300: #6AE3F3;
+  --aether-cyan-400: #48D8E8;             /* Brand Canonical Aether Cyan */
+  --aether-cyan-500: #22B8CF;
+  --aether-cyan-600: #1592A8;
+  --aether-cyan-700: #137286;
+  --aether-cyan-800: #155B6B;
+  --aether-cyan-900: #144B59;
+  --aether-cyan-subtle: rgba(72, 216, 232, 0.12);
+  --aether-cyan-muted: rgba(72, 216, 232, 0.24);
+
+  /* Aether Violet Scale (State Forking Accent Scale) */
+  --aether-violet-50: #F3F1FF;
+  --aether-violet-100: #E5E1FF;
+  --aether-violet-200: #CEC6FF;
+  --aether-violet-300: #AC9EFF;
+  --aether-violet-400: #8175FF;           /* Brand Canonical Aether Violet */
+  --aether-violet-500: #634BFF;
+  --aether-violet-600: #4F2DF5;
+  --aether-violet-700: #411EE0;
+  --aether-violet-800: #3519B8;
+  --aether-violet-900: #2C1794;
+  --aether-violet-subtle: rgba(129, 117, 255, 0.12);
+  --aether-violet-muted: rgba(129, 117, 255, 0.24);
+
+  /* Logo Ribbon Internal Stops (标志内部折面与空间色阶) */
+  --aether-ribbon-electric-blue: #1857E3;
+  --aether-ribbon-royal-indigo: #3342E8;
+  --aether-ribbon-vivid-violet: #760CF0;
+  --aether-ribbon-fold-shadow: #0E1354;
+
+  /* ==========================================================================
+   * 2. HIGH-CONTRAST TYPOGRAPHY & TEXT COLORS (高对比度工程文本层级)
+   * ========================================================================== */
+  --aether-text-primary: #F8FAFC;         /* High-contrast crisp title & primary copy (17.8:1 on Midnight) */
+  --aether-text-secondary: #94A3B8;       /* Technical descriptions & secondary labels (7.2:1 on Midnight) */
+  --aether-text-muted: #64748B;           /* Metadata, timestamps, disabled controls */
+  --aether-text-on-accent: #0B1020;       /* Dark text on bright Cyan/Violet buttons */
+  --aether-text-execution: var(--aether-color-cyan);
+  --aether-text-forking: var(--aether-color-violet);
+
+  /* ==========================================================================
+   * 3. SEMANTIC RUNTIME STATUS COLORS (虚拟机与运行态语义色)
+   * ========================================================================== */
+  --aether-status-running: var(--aether-color-cyan);
+  --aether-status-forked: var(--aether-color-violet);
+  --aether-status-success: #2EE59D;
+  --aether-status-warning: #F5B041;
+  --aether-status-danger: #FF5C7C;
+  --aether-status-info: #38BDF8;
+
+  /* ==========================================================================
+   * 4. BRAND GRADIENTS (青色至紫色核心渐变系统)
+   * ========================================================================== */
+  /* Primary Brand Linear Gradient (Cyan -> Violet) */
+  --aether-gradient-primary: linear-gradient(135deg, #48D8E8 0%, #8175FF 100%);
+  
+  /* Deep 3-Stop Runtime Ribbon Gradient (Cyan -> Electric Blue -> Violet) */
+  --aether-gradient-runtime: linear-gradient(135deg, #48D8E8 0%, #2E62FF 52%, #8175FF 100%);
+
+  /* Subtle Surface Ambient Gradient (for Cards, Hero Banners & Panels) */
+  --aether-gradient-surface: linear-gradient(180deg, rgba(17, 24, 43, 0.92) 0%, rgba(11, 16, 32, 0.98) 100%);
+  --aether-gradient-glow-surface: radial-gradient(120% 100% at 50% 0%, rgba(72, 216, 232, 0.10) 0%, rgba(129, 117, 255, 0.06) 45%, rgba(11, 16, 32, 0) 100%);
+
+  /* Geometric Node & Border Line Gradients */
+  --aether-gradient-node-line: linear-gradient(90deg, #48D8E8 0%, #8175FF 100%);
+  --aether-gradient-node-fade: linear-gradient(90deg, rgba(72, 216, 232, 0.65) 0%, rgba(129, 117, 255, 0.35) 55%, rgba(129, 117, 255, 0) 100%);
+
+  /* ==========================================================================
+   * 5. GEOMETRIC BORDERS, DIVIDERS & NODE STRUCTURES (几何线条与节点结构)
+   * ========================================================================== */
+  --aether-border-subtle: rgba(148, 163, 184, 0.12);
+  --aether-border-default: #1E2942;
+  --aether-border-strong: #2B3A5E;
+  --aether-border-cyan: rgba(72, 216, 232, 0.42);
+  --aether-border-violet: rgba(129, 117, 255, 0.42);
+
+  --aether-node-size-sm: 6px;
+  --aether-node-size-md: 8px;
+  --aether-node-size-lg: 12px;
+  --aether-stroke-hairline: 1px;
+  --aether-stroke-node: 1.5px;
+
+  /* Engineered Grid Pattern Background (工程化坐标网格纹理) */
+  --aether-grid-pattern: 
+    linear-gradient(to right, rgba(72, 216, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(129, 117, 255, 0.04) 1px, transparent 1px);
+  --aether-grid-size: 32px 32px;
+
+  /* ==========================================================================
+   * 6. RESTRAINED GLOW & ELEVATION SHADOWS (克制的发光效果与空间阴影)
+   * ========================================================================== */
+  --aether-shadow-sm: 0 2px 8px -2px rgba(2, 4, 16, 0.65);
+  --aether-shadow-md: 0 8px 24px -4px rgba(2, 4, 16, 0.75), 0 0 1px 1px rgba(148, 163, 184, 0.08);
+  --aether-shadow-lg: 0 20px 48px -8px rgba(2, 4, 16, 0.85), 0 0 1px 1px rgba(148, 163, 184, 0.12);
+
+  /* Restrained Glow Tokens (克制发光: 低扩散半径、精准微光，避免刺眼霓虹) */
+  --aether-glow-cyan-sm: 0 0 12px rgba(72, 216, 232, 0.22);
+  --aether-glow-cyan-md: 0 0 20px rgba(72, 216, 232, 0.28), 0 0 4px rgba(72, 216, 232, 0.45);
+  --aether-glow-violet-sm: 0 0 12px rgba(129, 117, 255, 0.24);
+  --aether-glow-violet-md: 0 0 20px rgba(129, 117, 255, 0.30), 0 0 4px rgba(129, 117, 255, 0.45);
+  --aether-glow-dual: 0 0 24px -4px rgba(72, 216, 232, 0.22), 0 0 24px -4px rgba(129, 117, 255, 0.22);
+  --aether-focus-ring: 0 0 0 2px #0B1020, 0 0 0 4px rgba(72, 216, 232, 0.65);
+
+  /* ==========================================================================
+   * 7. TYPOGRAPHY SYSTEM (字体家族、字重、字号与行高规范)
+   * ========================================================================== */
+  /* 1) 标题: Inter Bold / SemiBold | 2) 正文: Inter Regular | 3) 代码与技术数据: JetBrains Mono */
+  --aether-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --aether-font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --aether-font-mono: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace;
+
+  /* Font Weights */
+  --aether-font-weight-regular: 400;      /* 正文默认: Inter Regular */
+  --aether-font-weight-medium: 500;       /* 导航与次级标签 */
+  --aether-font-weight-semibold: 600;     /* 小标题与组件标题: Inter SemiBold */
+  --aether-font-weight-bold: 700;         /* 主标题与品牌大字: Inter Bold */
+
+  /* Type Scale (Modular Engineered Scale) */
+  --aether-text-xs: 0.75rem;              /* 12px - 技术标签 / 状态角标 */
+  --aether-text-sm: 0.875rem;             /* 14px - 辅助正文 / 控制台遥测数据 */
+  --aether-text-base: 1rem;               /* 16px - 标准正文 */
+  --aether-text-lg: 1.125rem;             /* 18px - 导语与副标题 */
+  --aether-text-xl: 1.25rem;              /* 20px - 卡片标题 */
+  --aether-text-2xl: 1.5rem;              /* 24px - 模块标题 */
+  --aether-text-3xl: 1.875rem;            /* 30px - 页面二级标题 */
+  --aether-text-4xl: 2.25rem;             /* 36px - 页面主标题 */
+  --aether-text-display: 3.25rem;         /* 52px - Hero 品牌主视觉标题 */
+
+  /* Line Heights */
+  --aether-leading-tight: 1.2;
+  --aether-leading-snug: 1.35;
+  --aether-leading-normal: 1.6;
+  --aether-leading-code: 1.55;
+
+  /* Letter Spacing */
+  --aether-tracking-tight: -0.02em;
+  --aether-tracking-normal: 0em;
+  --aether-tracking-wide: 0.06em;
+  --aether-tracking-brand: 0.14em;        /* 适用于 "AETHER" 品牌字标与全大写技术小标题 */
+  --aether-tracking-tagline: 0.22em;      /* 适用于 "THE RUNTIME OF POSSIBILITIES" */
+
+  /* ==========================================================================
+   * 8. SPACING, RADIUS & MOTION TOKENS (空间尺度、圆角与动效曲线)
+   * ========================================================================== */
+  --aether-space-1: 0.25rem;              /* 4px */
+  --aether-space-2: 0.5rem;               /* 8px */
+  --aether-space-3: 0.75rem;              /* 12px */
+  --aether-space-4: 1rem;                 /* 16px */
+  --aether-space-5: 1.25rem;              /* 20px */
+  --aether-space-6: 1.5rem;               /* 24px */
+  --aether-space-8: 2rem;                 /* 32px */
+  --aether-space-10: 2.5rem;              /* 40px */
+  --aether-space-12: 3rem;                /* 48px */
+  --aether-space-16: 4rem;                /* 64px */
+
+  --aether-radius-xs: 4px;
+  --aether-radius-sm: 6px;
+  --aether-radius-md: 10px;
+  --aether-radius-lg: 14px;
+  --aether-radius-xl: 20px;
+  --aether-radius-full: 9999px;
+
+  --aether-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --aether-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --aether-duration-fast: 150ms;
+  --aether-duration-normal: 240ms;
+}
+
+/* ============================================================================
+ * 9. READY-TO-USE ENGINEERED UTILITY & COMPONENT CLASSES (开箱即用工程样式类)
+ * ============================================================================ */
+
+/* Base Page Reset */
+.aether-app {
+  background-color: var(--aether-bg-canvas);
+  color: var(--aether-text-primary);
+  font-family: var(--aether-font-sans);
+  font-weight: var(--aether-font-weight-regular);
+  line-height: var(--aether-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Presets */
+.aether-heading-hero {
+  font-family: var(--aether-font-display);
+  font-size: var(--aether-text-display);
+  font-weight: var(--aether-font-weight-bold);
+  line-height: var(--aether-leading-tight);
+  letter-spacing: var(--aether-tracking-tight);
+  color: var(--aether-text-primary);
+}
+
+.aether-heading-title {
+  font-family: var(--aether-font-display);
+  font-size: var(--aether-text-2xl);
+  font-weight: var(--aether-font-weight-semibold);
+  line-height: var(--aether-leading-snug);
+  letter-spacing: var(--aether-tracking-tight);
+  color: var(--aether-text-primary);
+}
+
+.aether-tagline {
+  font-family: var(--aether-font-sans);
+  font-size: var(--aether-text-xs);
+  font-weight: var(--aether-font-weight-medium);
+  letter-spacing: var(--aether-tracking-tagline);
+  text-transform: uppercase;
+  color: var(--aether-text-secondary);
+}
+
+.aether-code,
+.aether-telemetry {
+  font-family: var(--aether-font-mono);
+  font-size: var(--aether-text-sm);
+  line-height: var(--aether-leading-code);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Gradient Text Effect (青紫渐变文字) */
+.aether-text-gradient {
+  background: var(--aether-gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Surface Card with Restrained Glow & Geometric Border */
+.aether-surface-card {
+  background: var(--aether-bg-surface);
+  background-image: var(--aether-gradient-glow-surface);
+  border: var(--aether-stroke-hairline) solid var(--aether-border-default);
+  border-radius: var(--aether-radius-lg);
+  box-shadow: var(--aether-shadow-md);
+  transition: border-color var(--aether-duration-normal) var(--aether-ease-out),
+              box-shadow var(--aether-duration-normal) var(--aether-ease-out);
+}
+
+.aether-surface-card:hover {
+  border-color: var(--aether-border-cyan);
+  box-shadow: var(--aether-shadow-md), var(--aether-glow-cyan-sm);
+}
+
+/* Geometric Node Connector Line (几何节点分割线) */
+.aether-node-divider {
+  position: relative;
+  height: var(--aether-stroke-node);
+  background: var(--aether-gradient-node-line);
+  opacity: 0.75;
+}
+
+.aether-node-divider::before,
+.aether-node-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: var(--aether-node-size-md);
+  height: var(--aether-node-size-md);
+  border-radius: var(--aether-radius-full);
+  transform: translateY(-50%);
+}
+
+.aether-node-divider::before {
+  left: 0;
+  background-color: var(--aether-color-cyan);
+  box-shadow: var(--aether-glow-cyan-sm);
+}
+
+.aether-node-divider::after {
+  right: 0;
+  background-color: var(--aether-color-violet);
+  box-shadow: var(--aether-glow-violet-sm);
+}
+
+/* Technical Badges (EXECUTION / STATE FORKING) */
+.aether-badge-execution {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--aether-space-2);
+  padding: 0.25rem 0.625rem;
+  font-family: var(--aether-font-mono);
+  font-size: var(--aether-text-xs);
+  font-weight: var(--aether-font-weight-semibold);
+  letter-spacing: var(--aether-tracking-wide);
+  text-transform: uppercase;
+  color: var(--aether-color-cyan);
+  background-color: var(--aether-cyan-subtle);
+  border: 1px solid var(--aether-border-cyan);
+  border-radius: var(--aether-radius-sm);
+  box-shadow: var(--aether-glow-cyan-sm);
+}
+
+.aether-badge-forking {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--aether-space-2);
+  padding: 0.25rem 0.625rem;
+  font-family: var(--aether-font-mono);
+  font-size: var(--aether-text-xs);
+  font-weight: var(--aether-font-weight-semibold);
+  letter-spacing: var(--aether-tracking-wide);
+  text-transform: uppercase;
+  color: var(--aether-color-violet);
+  background-color: var(--aether-violet-subtle);
+  border: 1px solid var(--aether-border-violet);
+  border-radius: var(--aether-radius-sm);
+  box-shadow: var(--aether-glow-violet-sm);
+}
